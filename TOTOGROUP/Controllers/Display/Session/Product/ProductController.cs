@@ -371,6 +371,15 @@ namespace TOTOGROUP.Controllers.Display.Session.Product
                 files.Append("<object src=\"" + filesbaogia[0].File + "\"><embed src=\"" + filesbaogia[0].File + "\"></embed></object>");
                 ViewBag.thongso = files;
             }
+            string address = Product.Address.ToString();
+            string resultAddress = "";
+            if (address != null && address != "")
+            {
+                int idaddress = int.Parse(address);
+                if (db.tblAddresses.FirstOrDefault(p => p.id == idaddress) != null)
+                    resultAddress = db.tblAddresses.FirstOrDefault(p => p.id == idaddress).Name;
+            }
+            ViewBag.address = resultAddress;
             return View(Product);
         }
         public PartialViewResult PartialRightProductDetail(string tag)

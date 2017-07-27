@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace TOTOGROUP.Models.Mapping
@@ -27,9 +27,6 @@ namespace TOTOGROUP.Models.Mapping
                 .HasMaxLength(255);
 
             this.Property(t => t.Warranty)
-                .HasMaxLength(50);
-
-            this.Property(t => t.Address)
                 .HasMaxLength(50);
 
             this.Property(t => t.Access)

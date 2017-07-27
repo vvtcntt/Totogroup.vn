@@ -20,7 +20,7 @@ namespace TOTOGROUP.Models
         public Nullable<int> Group { get; set; }
         public Nullable<bool> Vat { get; set; }
         public string Warranty { get; set; }
-        public string Address { get; set; }
+        public Nullable<int> Address { get; set; }
         public Nullable<bool> Transport { get; set; }
         public string Access { get; set; }
         public string Sale { get; set; }

@@ -16,7 +16,6 @@
     $(function () {
         createEditor('vi', 'Content');
     });
-
 </script>
 <script type="text/javascript">
     var editor;
@@ -29,7 +28,6 @@
     $(function () {
         createEditor('vi', 'Parameter');
     });
-
 </script>
 <script type="text/javascript">
     $(function () {
@@ -126,12 +124,10 @@
 
                                                 <td align="center">
                                                     <button type="submit" class="toolbar btn btn-info" name="btnSave" id="btnSave"><i class="icon-save"></i> &nbsp;Lưu lại</button>
-
                                                 </td>
 
                                                 <td align="center">
                                                     <button type="submit" class="toolbar btn btn-info" name="btnSaveCreate" id="btnSaveCreate"><i class="icon-ok"></i> &nbsp;Lưu và Thêm mới</button>
-
                                                 </td>
                                                 <td align="center">
                                                     <a id="cph_Main_ctl00_toolbox_rptAction_lbtAction_4" title="Quay lại" style="color:#FFF !important" class="toolbar btn btn-info" href="">
@@ -147,7 +143,6 @@
                                                 </td>
                                             </tr>
                                         </table>
-
                                     </div>
                                 </div>
                             </div>
@@ -167,12 +162,10 @@
 
                                                         <td align="center">
                                                             <button type="submit" class="toolbar btn btn-info" name="btnSave" id="btnSave"><i class="icon-save"></i> &nbsp;Lưu lại</button>
-
                                                         </td>
 
                                                         <td align="center">
                                                             <button type="submit" class="toolbar btn btn-info" name="btnSaveCreate" id="btnSaveCreate"><i class="icon-ok"></i> &nbsp;Lưu và Thêm mới</button>
-
                                                         </td>
                                                         <td align="center">
                                                             <a id="cph_Main_ctl00_toolbox_rptAction_lbtAction_4" title="Quay lại" style="color:#FFF !important" class="toolbar btn btn-info" href="">
@@ -188,13 +181,11 @@
                                                         </td>
                                                     </tr>
                                                 </table>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- widget-title -->
                         <!-- widget-body -->
@@ -248,7 +239,6 @@
                                         <br />
                                         @{bool URL = false;}
                                         @Html.CheckBoxFor(model => URL, new { @style = "float:left" }) <span style="margin:4px 5px; display:inline-block">: Sửa đường dẫn URL</span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -267,7 +257,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -287,7 +276,6 @@
                                             </span>
                                         </span>
                                         <span class="Mota" style="color: #F00"></span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -312,7 +300,6 @@
                                     </td>
                                     <td>
                                         @Html.TextBoxFor(p => p.ImageLinkDetail, new { @class = "Name_ad" })&nbsp;<input id="SelectImages" type="button" value="Lựa chọn ảnh" class="Images_ad" />
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -370,7 +357,6 @@
                                     <td>
                                         @Html.TextBoxFor(p => p.Ord, new { @class = "Ord_ad" })
 
-
                                         <span class="tooltip-help">
                                             <span class="tooltipContent">
                                                 <p class="tooltiptitle">
@@ -406,7 +392,7 @@
                                         Mức chiết khấu nhóm :
                                     </td>
                                     <td>
-                                       @Html.DropDownList("drPrice", "===== Chọn Nhóm =====")
+                                        @Html.DropDownList("drPrice", "===== Chọn Nhóm =====")
                                         <span style="color:#F00; font-weight:bold"> * Phải chọn đúng nhóm sản phẩm, sai là chết đấy (^_^)</span>
                                     </td>
                                 </tr>
@@ -450,6 +436,26 @@
                                 </tr>
                                 <tr>
                                     <td class="key">
+                                        Xuất xứ sản phẩm
+                                    </td>
+                                    <td>
+
+                                        @Html.DropDownList("drAddress", "--Nhóm xuất xứ--")
+
+                                        <span class="tooltip-help">
+                                            <span class="tooltipContent">
+                                                <p class="tooltiptitle">
+                                                    Xuất xứ sản phẩm
+                                                </p>
+                                                <p class="tooltipmessage">
+                                                    Xuất xứ sản phẩm
+                                                </p>
+                                            </span>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="key">
                                         Thông tin khuyến mại
                                     </td>
                                     <td>
@@ -484,7 +490,6 @@
                                                 </p>
                                             </span>
                                         </span>
-
                                     </td>
                                 </tr>
                                 <tr>
@@ -667,11 +672,10 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-}
+                                            }
 <script type="text/javascript">
 
     $(document).ready(function () {
@@ -703,14 +707,10 @@
 
             $('.Mota').html('Số ký tự là : ' + leght + ' (khuyến cáo là dưới 190 ký tự)');
 
-
-
         });
-
 
     });
 </script>
-
 
 <script type="text/javascript">
     $(document).ready(function () {

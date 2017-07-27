@@ -426,7 +426,15 @@ namespace TOTO.Controllers.Admin.Product
 
                 }
                 ViewBag.drPrice = lstprice;
-                    return View();
+                //address
+                var listaddress = db.tblAddresses.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
+                var lstAddress = new List<SelectListItem>();
+                foreach (var item in listaddress)
+                {
+                    lstAddress.Add(new SelectListItem { Text = item.Name, Value = item.id.ToString() });
+                }
+                ViewBag.drAddress = new SelectList(lstAddress, "Value", "Text", 0);
+                return View();
             }
             else
             {
@@ -460,6 +468,11 @@ namespace TOTO.Controllers.Admin.Product
                 string ImageLinkDetail = Collection["ImageLinkDetail"];
                 string imagethum = listarray[listarray.Length - 1];
                 tblproduct.ImageLinkThumb = "/Images/_thumbs/Images/" + imagethum;
+                string idAddress = Collection["drAddress"];
+                if (idAddress != null && idAddress != "")
+                {
+                    tblproduct.Address = int.Parse(idAddress);
+                }
                 db.tblProducts.Add(tblproduct);
                 db.SaveChanges();
                 var listprro = db.tblProducts.OrderByDescending(p => p.id).Take(1).ToList();
@@ -845,6 +858,20 @@ namespace TOTO.Controllers.Admin.Product
 
                 }
                 ViewBag.drPrice = new SelectList(lstprice, "Value", "Text", tblproduct.Group);
+                string idaddress = tblproduct.Address.ToString();
+                var listaddress = db.tblAddresses.Where(p => p.Active == true).OrderBy(p => p.Ord).ToList();
+                var lstAddress = new List<SelectListItem>();
+                foreach (var item in listaddress)
+                {
+                    lstAddress.Add(new SelectListItem { Text = item.Name, Value = item.id.ToString() });
+                }
+                if (idaddress != null && idaddress != "")
+                {
+                    ViewBag.drAddress = new SelectList(lstAddress, "Value", "Text", int.Parse(idaddress));
+
+                }
+                else
+                    ViewBag.drAddress = new SelectList(lstAddress, "Value", "Text", 0);
                 return View(tblproduct);
             }
             else
@@ -941,6 +968,15 @@ namespace TOTO.Controllers.Admin.Product
                     tblproduct.ViewHomes = ViewHomes;
                     tblproduct.Title = Title;
                     tblproduct.Keyword = Keyword;
+                    string idAddress = collection["drAddress"];
+                    if (idAddress != null && idAddress != "")
+                    {
+                        tblproduct.Address = int.Parse(idAddress);
+                    }
+                    else
+                    {
+                        tblproduct.Address = 0;
+                    }
                     int Group = int.Parse(collection["drPrice"]);
                     tblproduct.Group = Group;
                     string urls = db.tblGroupProducts.Find(idCate).Tag;

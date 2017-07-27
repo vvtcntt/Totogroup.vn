@@ -3188,7 +3188,7 @@ $.extend(Datepicker.prototype, {
 						handled = event.ctrlKey || event.metaKey;
 						break; // clear on ctrl or command +end
 				case 36: if (event.ctrlKey || event.metaKey) {
-							$.datepicker._goTOTOGROUPday(event.target);
+							$.datepicker._gotoToday(event.target);
 						}
 						handled = event.ctrlKey || event.metaKey;
 						break; // current on ctrl or command +home
@@ -3483,7 +3483,7 @@ $.extend(Datepicker.prototype, {
 		this._updateDatepicker(inst);
 	},
 	/* Action for current link. */
-	_goTOTOGROUPday: function(id) {
+	_gotoToday: function(id) {
 		var date,
 			target = $(id),
 			inst = this._getInst(target[0]);
@@ -4065,7 +4065,7 @@ $.extend(Datepicker.prototype, {
 					$.datepicker._hideDatepicker();
 				},
 				today: function () {
-					$.datepicker._goTOTOGROUPday(id);
+					$.datepicker._gotoToday(id);
 				},
 				selectDay: function () {
 					$.datepicker._selectDay(id, +this.getAttribute("data-month"), +this.getAttribute("data-year"), this);
@@ -4662,10 +4662,10 @@ $.widget( "ui.dialog", {
 	isOpen: function() {
 		return this._isOpen;
 	},
-	moveTOTOGROUPp: function() {
-		this._moveTOTOGROUPp();
+	moveToTop: function() {
+		this._moveToTop();
 	},
-	_moveTOTOGROUPp: function( event, silent ) {
+	_moveToTop: function( event, silent ) {
 		var moved = !!this.uiDialog.nextAll(":visible").insertBefore( this.uiDialog ).length;
 		if ( moved && !silent ) {
 			this._trigger( "focus", event );
@@ -4675,7 +4675,7 @@ $.widget( "ui.dialog", {
 	open: function() {
 		var that = this;
 		if ( this._isOpen ) {
-			if ( this._moveTOTOGROUPp() ) {
+			if ( this._moveToTop() ) {
 				this._focusTabbable();
 			}
 			return;
@@ -4685,7 +4685,7 @@ $.widget( "ui.dialog", {
 		this._size();
 		this._position();
 		this._createOverlay();
-		this._moveTOTOGROUPp( null, true );
+		this._moveToTop( null, true );
 		this._show( this.uiDialog, this.options.show, function() {
 			that._focusTabbable();
 			that._trigger("focus");
@@ -4765,7 +4765,7 @@ $.widget( "ui.dialog", {
 				}
 			},
 			mousedown: function( event ) {
-				if ( this._moveTOTOGROUPp( event ) ) {
+				if ( this._moveToTop( event ) ) {
 					this._focusTabbable();
 				}
 			}

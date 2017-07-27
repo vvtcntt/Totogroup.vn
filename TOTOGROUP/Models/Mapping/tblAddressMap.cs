@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace TOTOGROUP.Models.Mapping
 {
-    public class tblImageProductMap : EntityTypeConfiguration<tblImageProduct>
+    public class tblAddressMap : EntityTypeConfiguration<tblAddress>
     {
-        public tblImageProductMap()
+        public tblAddressMap()
         {
             // Primary Key
             this.HasKey(t => t.id);
@@ -14,16 +14,12 @@ namespace TOTOGROUP.Models.Mapping
             this.Property(t => t.Name)
                 .HasMaxLength(100);
 
-            this.Property(t => t.Images)
-                .HasMaxLength(200);
-
             // Table & Column Mappings
-            this.ToTable("tblImageProduct");
+            this.ToTable("tblAddress");
             this.Property(t => t.id).HasColumnName("id");
-            this.Property(t => t.idProduct).HasColumnName("idProduct");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.Type).HasColumnName("Type");
-            this.Property(t => t.Images).HasColumnName("Images");
+            this.Property(t => t.Ord).HasColumnName("Ord");
+            this.Property(t => t.Active).HasColumnName("Active");
         }
     }
 }
