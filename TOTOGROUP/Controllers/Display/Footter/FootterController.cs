@@ -33,6 +33,8 @@ namespace TOTO.Controllers.Display.Footter
             var Imagesadw = db.tblImages.Where(p => p.Active == true && p.idCate == 9).OrderByDescending(p => p.Ord).Take(1).ToList();
             if (Imagesadw.Count > 0)
                 ViewBag.Chuoiimg = "<a href=\"" + Imagesadw[0].Url + "\" title=\"" + Imagesadw[0].Name + "\"><img src=\"" + Imagesadw[0].Images + "\" alt=\"" + Imagesadw[0].Name + "\" style=\"max-width:100%;\" /> </a>";
+            string resultOut= "<div class=\"vvt\"><a href=\"http://kangaroochinhhang.vn\" title=\"Máy lọc nước Kangaroo\">Máy lọc nước Kangaroo</a> chính hãng <a href=\"http://kangaroochinhhang.vn/may-loc-nuoc-kangaroo-hydrogen\" title=\"Máy lọc nước Kangaroo Hydrogen\">Máy lọc nước Kangaroo Hydrogen</a> mới nhất 2018 <a href=\"http://kangaroochinhhang.vn/loi-loc-nuoc-kangaroo\" title=\"Lõi lọc nước Kangaroo\">Lõi lọc nước Kangaroo</a></div>";
+            ViewBag.resultOut = resultOut;
             return PartialView(tblconfig);
         }
         public ActionResult Command(FormCollection collection, tblRegister registry)
