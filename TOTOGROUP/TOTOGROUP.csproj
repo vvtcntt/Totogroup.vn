@@ -22,6 +22,7 @@
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -1399,6 +1400,13 @@
     <Content Include="Content\Display\Css\Product_Rs.css" />
     <Content Include="Content\Display\Css\Sale.css" />
     <Content Include="Content\Display\Css\styles.css" />
+    <Content Include="Content\Display\Css\update\call.css" />
+    <Content Include="Content\Display\Css\update\owl.carousel.min.css" />
+    <Content Include="Content\Display\Css\update\owl.theme.default.min.css" />
+    <Content Include="Content\Display\Css\update\Popup_ud.css" />
+    <Content Include="Content\Display\Css\update\product.css" />
+    <Content Include="Content\Display\Css\update\sale.css" />
+    <Content Include="Content\Display\Css\update\times.css" />
     <Content Include="Content\Display\data.html" />
     <Content Include="Content\Display\Datadetail.html" />
     <Content Include="Content\Display\iCon\Adw.png" />
@@ -1537,6 +1545,9 @@
     <Content Include="Content\Display\iCon\tornado.png" />
     <Content Include="Content\Display\iCon\totochinhhang.png" />
     <Content Include="Content\Display\iCon\TOTOERRO.png" />
+    <Content Include="Content\Display\iCon\update\calling.gif" />
+    <Content Include="Content\Display\iCon\update\hinhtron.png" />
+    <Content Include="Content\Display\iCon\update\icon-zalo.png" />
     <Content Include="Content\Display\iCon\view_refresh.png" />
     <Content Include="Content\Display\iCon\vn.png" />
     <Content Include="Content\Display\iCon\Watesaving.png" />
@@ -1548,6 +1559,9 @@
     <Content Include="Content\Display\Js\jquery.prettyPhoto.js" />
     <Content Include="Content\Display\Js\PopupDetailProduct.js" />
     <Content Include="Content\Display\Js\Scroll.js" />
+    <Content Include="Content\Display\Js\update\jquery.popupMiendatweb.min.js" />
+    <Content Include="Content\Display\Js\update\owl.carousel.min.js" />
+    <Content Include="Content\Display\Js\update\script.js" />
     <Content Include="Content\Display\ListNews.html" />
     <Content Include="Content\Display\ListProduct.html" />
     <Content Include="Content\Display\Newdetail.html" />
@@ -1900,6 +1914,8 @@
     <Content Include="Views\address\Index.cshtml" />
     <Content Include="Views\address\ProductAddress.cshtml" />
     <Content Include="Views\address\UpdateProductAddress.cshtml" />
+    <Content Include="Views\Footter\callPartial.cshtml" />
+    <Content Include="Views\Sale\detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

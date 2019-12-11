@@ -39,52 +39,25 @@ namespace TOTO.Controllers.Display.Session.ProductSyn
                 {
                     chuoi += "<div id=\"Content_ProductSYN\">";
 
-                    for (int i = 0; i < listProductSyn.Count; i++)
-                    {
-                        chuoi += " <div class=\"spdb\">";
-                        chuoi += " <div class=\"sptb\"></div>";
-
-                        chuoi += " <div class=\"img_spdb\">";
-                        chuoi += " <a href=\"/Syn/" + listProductSyn[i].Tag + "\" title=\"" + listProductSyn[i].Name + "\"><img src=\"" + listProductSyn[i].ImageLinkThumb + "\" alt=\"" + listProductSyn[i].Name + "\" /></a>";
-                        chuoi += " </div>";
-                        chuoi += " <a href=\"/Syn/" + listProductSyn[i].Tag + "\" class=\"Name\" title=\"" + listProductSyn[i].Name + "\">" + listProductSyn[i].Name + "</a>";
-                        chuoi += "<div class=\"Bottom_Tear_Sale\">";
-                        chuoi += "<div class=\"Price\">";
-                        if (listProductSyn[i].PriceSale>2)
-                        {chuoi += "<p class=\"PriceSale\">" + string.Format("{0:#,#}", listProductSyn[i].PriceSale) + " <span>đ</span></p>";}
-                        else
-                        {chuoi += "<p class=\"PriceSale\"> Liên hệ</p>";}
-                        if (listProductSyn[i].Price > 2)
-                        { chuoi += "<p class=\"Price_s\">" + string.Format("{0:#,#}", listProductSyn[i].Price) + "đ</p>"; }
-                        else
-                        { chuoi += "<p class=\"Price_s\">Liên hệ</p>"; }
-                        chuoi += "</div>";
-                        chuoi += "<div class=\"sevices\">";
-                        if (listProductSyn[i].Status == true)
-                        {
-                            chuoi += "<span class=\"Status\"></span>";
-                        }
-                        else
-                        {
-                            chuoi += "<span class=\"StatusNo\"></span>";
-                        }
-
-                        chuoi += "<span class=\"Transport\"><span class=\"icon\">";
-                        if (listProductSyn[i].Transport == true)
-                        {
-                            chuoi += "</span> Toàn quốc</span>";
-                        }
-                        else
-                        {
-                            chuoi += "</span> Liên hệ</span>";
-                        }
-                        chuoi += "<span class=\"View\"></span>";
-                        chuoi += "</div>";
-                        chuoi += "</div>";
-
-                        chuoi += "  </div>";
-                    }
+                chuoi += "<div class=\"owl-carousel owl-theme\">";
+                for (int i = 0; i < listProductSyn.Count; i++)
+                {
+                    chuoi += "<div class=\"item spdb\">";
+                    chuoi += "<div class=\"sptb\"></div>";
+                    chuoi += "<div class=\"img_spdb\">";
+                    chuoi += "<a href=\"/syn/" + listProductSyn[i].Tag + "\" title=\"" + listProductSyn[i].Name + "\"><img src=\"" + listProductSyn[i].ImageLinkThumb + "\" alt=\"" + listProductSyn[i].Name + "\" /></a>";
                     chuoi += "</div>";
+                    chuoi += "<a href=\"/syn/" + listProductSyn[i].Tag + "\" class=\"Name\" title=\"" + listProductSyn[i].Name + "\">" + listProductSyn[i].Name + "</a>";
+                    chuoi += "<div class=\"Bottom_Tear_Sale\">";
+                    chuoi += "<div class=\"Price\">";
+                    chuoi += "<p class=\"PriceSale\">" + string.Format("{0:#,#}", listProductSyn[i].PriceSale) + " <span>đ</span></p>";
+                    chuoi += " <p class=\"Price_s\">" + string.Format("{0:#,#}", listProductSyn[i].Price) + "</p>";
+                    chuoi += "</div>";
+                    chuoi += "</div>";
+                    chuoi += "</div>";
+                }
+                chuoi += "</div>";
+                chuoi += "</div>";
                 }
                 chuoi += "</div>";
            
@@ -109,17 +82,17 @@ namespace TOTO.Controllers.Display.Session.ProductSyn
             }
             ViewBag.chuoiimage = chuoiimages;
             int idsyn = int.Parse(tblproductSyn.id.ToString());
-            int visit = int.Parse(tblproductSyn.Visit.ToString());
-            if (visit > 0)
-            {
-                tblproductSyn.Visit = tblproductSyn.Visit + 1;
-                db.SaveChanges();
-            }
-            else
-            {
-                tblproductSyn.Visit = tblproductSyn.Visit + 1;
-                db.SaveChanges();
-            }
+            //int visit = int.Parse(tblproductSyn.Visit.ToString());
+            //if (visit > 0)
+            //{
+            //    tblproductSyn.Visit = tblproductSyn.Visit + 1;
+            //    db.SaveChanges();
+            //}
+            //else
+            //{
+            //    tblproductSyn.Visit = tblproductSyn.Visit + 1;
+            //    db.SaveChanges();
+            //}
             var Product = db.ProductConnects.Where(p => p.idSyn == idsyn).ToList();
             string chuoipr = "";
             string chuoisosanh = "";

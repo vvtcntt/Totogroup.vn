@@ -413,17 +413,22 @@ namespace TOTOGROUP.Controllers.Display.Session.Product
             //lIST Menu
             int idCate = int.Parse(Product.idCate.ToString());
             tblGroupProduct grouproduct = db.tblGroupProducts.Find(idCate);
-            int idParent = int.Parse(grouproduct.ParentID.ToString());
-            StringBuilder chuoimenu = new StringBuilder();
-            var listGroupProduct = db.tblGroupProducts.Where(p => p.ParentID == idParent && p.Active == true).OrderBy(p => p.Ord).ToList();
-            for (int i = 0; i < listGroupProduct.Count; i++)
+            string idps = grouproduct.ParentID.ToString();
+            if(idps!=null && idps!="")
             {
-                string ntag = listGroupProduct[i].Tag;
+                int idParent = int.Parse(grouproduct.ParentID.ToString());
+                StringBuilder chuoimenu = new StringBuilder();
+                var listGroupProduct = db.tblGroupProducts.Where(p => p.ParentID == idParent && p.Active == true).OrderBy(p => p.Ord).ToList();
+                for (int i = 0; i < listGroupProduct.Count; i++)
+                {
+                    string ntag = listGroupProduct[i].Tag;
 
-                chuoimenu.Append("<h3><a href=\"/0/" + ntag + "\" title=\"" + listGroupProduct[i].Name + "\">› " + listGroupProduct[i].Name + "</a></h3>");
+                    chuoimenu.Append("<h3><a href=\"/0/" + ntag + "\" title=\"" + listGroupProduct[i].Name + "\">› " + listGroupProduct[i].Name + "</a></h3>");
 
+                }
+                ViewBag.chuoimenu = chuoimenu;
             }
-            ViewBag.chuoimenu = chuoimenu;
+            
             //Load sản phẩm liên quan
             string Url = grouproduct.Tag;
             StringBuilder chuoiproduct = new StringBuilder();
